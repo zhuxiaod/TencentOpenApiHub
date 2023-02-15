@@ -5,29 +5,36 @@
 # Any lines starting with a # are optional, but their use is encouraged
 # To learn more about a Podspec see https://guides.cocoapods.org/syntax/podspec.html
 #
+Pod::Spec.new do |spec|
+  spec.name             = 'TencentOpenApiHub'
+  spec.version          = '1.0.0'
+  spec.summary          = 'TencentOpenAPI for cocoapods'
 
-Pod::Spec.new do |s|
-  s.name             = 'TencentOpenApiHub'
-  s.version          = '0.1.0'
-  s.summary          = 'TencentOpenApiHub'
+  spec.homepage            = 'https://github.com/zhuxiaod/TencentOpenApiHub'
+  spec.license          =   { :type => 'MIT', :file => 'LICENSE' }
+  spec.author              = { 'zhuxiaod' => 'zhuxiaod_183202114@qq.com' }
+  spec.source              = { :git => 'https://github.com/zhuxiaod/TencentOpenApiHub.git', :tag => spec.version.to_s }
+  
+  spec.platform = :ios
+  spec.ios.deployment_target = '11.0'
+  spec.static_framework = true
+  spec.requires_arc = true
 
-  s.description      = <<-DESC
-TODO: Add long description of the pod here.
-                       DESC
+  spec.frameworks = 'Security', 'SystemConfiguration', 'CoreGraphics', 'CoreTelephony', 'WebKit'
+  spec.libraries = 'iconv', 'sqlite3', 'c++', 'z'
 
-  s.homepage         = 'https://github.com/zhuxiaod/TencentOpenApiHub'
-  s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'zhuxiaod' => 'zhuxiaod_183202114@qq.com' }
-  s.source           = { :git => 'https://github.com/zhuxiaod/ChindleSpecs.git', :tag => s.version.to_s }
+  spec.vendored_frameworks = '*.framework'
+  spec.source_files = 'TencentOpenAPI.framework/Headers/*'
+  spec.resource = '*.bundle'
 
-  s.ios.deployment_target = '11.0'
+  spec.pod_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
+    'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/TencentOpenAPI.framework/Headers/',
+    'DEFINES_MODULE' => 'YES'
+  }
+  spec.user_target_xcconfig = {
+    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
 
-  s.swift_versions = '5.0'
-    
-  s.resource = 'TencentOpenApiHub/TencentOpenApi_IOS_Bundle.bundle'
-  s.vendored_frameworks   = 'TencentOpenApiHub/TencentOpenAPI.framework'
-  s.pod_target_xcconfig   = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.user_target_xcconfig  = { 'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64' }
-  s.requires_arc          = true
+  }
 
 end

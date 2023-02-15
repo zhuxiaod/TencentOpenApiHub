@@ -1,0 +1,2 @@
+# TencentOpenApiHub
+由于TencentOpenApi不能pod.自己做一个方便使用

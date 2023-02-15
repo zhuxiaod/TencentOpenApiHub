@@ -18,7 +18,7 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/zhuxiaod/TencentOpenApiHub'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'zhuxiaod' => 'zhuxiaod_183202114@qq.com' }
-  s.source           = { :git => 'https://github.com/zhuxiaod/TencentOpenApiHub.git', :tag => s.version.to_s }
+  s.source           = { :git => 'https://github.com/zhuxiaod/ChindleSpecs.git', :tag => s.version.to_s }
 
   s.ios.deployment_target = '11.0'
 

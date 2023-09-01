@@ -21,20 +21,25 @@ Pod::Spec.new do |spec|
   spec.requires_arc = true
 
   spec.frameworks = 'Security', 'SystemConfiguration', 'CoreGraphics', 'CoreTelephony', 'WebKit'
-  spec.libraries = 'iconv', 'sqlite3', 'c++', 'z'
+#  spec.libraries = 'iconv', 'sqlite3', 'c++', 'z'
 
   spec.vendored_frameworks = '*.framework'
   spec.source_files = 'TencentOpenAPI.framework/Headers/*'
   spec.resource = '*.bundle'
+  
+  
 
+  #pod buildingSetting
   spec.pod_target_xcconfig = {
     'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64',
     'SWIFT_INCLUDE_PATHS' => '$(PODS_TARGET_SRCROOT)/TencentOpenAPI.framework/Headers/',
     'DEFINES_MODULE' => 'YES'
   }
-  spec.user_target_xcconfig = {
-    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
-
-  }
+  
+  #修改taget设置
+#  spec.user_target_xcconfig = {
+#    'EXCLUDED_ARCHS[sdk=iphonesimulator*]' => 'arm64'
+#
+#  }
 
 end
